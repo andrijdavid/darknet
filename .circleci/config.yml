@@ -5,6 +5,8 @@ jobs:
        - image: alantrrs/cuda-opencv:latest
 #      - image: nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04
     working_directory: ~/work
+    artifacts:
+       - "./" # relative to the build directory
     steps:
       - checkout
       - run: make LIBSO=1 GPU=0 CUDNN=0 OPENCV=0 -j 8
